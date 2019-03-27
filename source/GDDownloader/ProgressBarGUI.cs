@@ -10,12 +10,10 @@ namespace GDMainGUI
     public partial class ProgressBarGUI : Form
     {
         public static string ID = MainGUI.ID;
-        public static string SongName = MainGUI.SongName;
         public static string Path = MainGUI.Path;
         public static int ModID = int.Parse(ID) - int.Parse(ID.Substring(ID.Length - 3));
-        public static string URL = "http://audio.ngfiles.com/" + ModID + "/" + ID + "_" + SongName + ".mp3";
-        //some URLs uses "https://audio-download.ngfiles.com" (since 848720?) but that doesn't seem to be a problem.
-        public static double final;
+        public static string URL = "http://audio.ngfiles.com/" + ModID + "/" + ID + "_" + MainGUI.SongName + ".mp3";
+        //some URLs also uses "https://audio-download.ngfiles.com" but that doesn't seem to be a problem.
         
         public ProgressBarGUI()
         {
@@ -73,8 +71,6 @@ namespace GDMainGUI
                 progressBar.Minimum = 0;
                 double receive = double.Parse(e.BytesReceived.ToString());
                 double total = double.Parse(e.TotalBytesToReceive.ToString());
-                if (total != 0)
-                    final = double.Parse(e.TotalBytesToReceive.ToString());
                 double percentage = receive / total * 100;
                 labelPercent.Text = String.Format("{0:0.##} %", percentage);
                 progressBar.Value = int.Parse(Math.Truncate(percentage).ToString());
