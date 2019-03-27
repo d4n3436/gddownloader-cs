@@ -1,4 +1,4 @@
-﻿namespace GDMainGUI
+﻿namespace GDDownloader
 {
     partial class ProgressBarGUI
     {
@@ -43,7 +43,7 @@
             // 
             this.labelPercent.AutoSize = true;
             this.labelPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPercent.Location = new System.Drawing.Point(130, 53);
+            this.labelPercent.Location = new System.Drawing.Point(128, 53);
             this.labelPercent.Name = "labelPercent";
             this.labelPercent.Size = new System.Drawing.Size(32, 20);
             this.labelPercent.TabIndex = 2;

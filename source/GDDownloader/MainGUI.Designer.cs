@@ -1,4 +1,4 @@
-﻿namespace GDMainGUI
+﻿namespace GDDownloader
 {
     partial class MainGUI
     {
@@ -151,10 +151,10 @@
             this.groupBoxData.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
-
         }
 
         #endregion
+
         private System.Windows.Forms.Button buttonDownload;
         private System.Windows.Forms.Button buttonHelp;
         private System.Windows.Forms.GroupBox groupBoxData;
@@ -167,4 +167,3 @@
         private System.Windows.Forms.TextBox textBoxID;
     }
 }
-

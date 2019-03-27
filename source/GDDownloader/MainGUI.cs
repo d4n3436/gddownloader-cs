@@ -3,13 +3,13 @@ using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 
-namespace GDMainGUI
+namespace GDDownloader
 {
     public partial class MainGUI : Form
     {
-        public static string SongName;
         public static string ID;
         public static string Path = "C:\\Users\\" + Environment.UserName + " \\AppData\\Local\\GeometryDash";
+        public static string SongName;
 
         public MainGUI()
         {
@@ -30,10 +30,7 @@ namespace GDMainGUI
             if (comboBoxSavePath.SelectedIndex != 0) //Alternate save path or other.
             {
                 FolderBrowserDialog fbd = new FolderBrowserDialog();
-                if (comboBoxSavePath.SelectedIndex == 1)
-                    fbd.Description = "Select the Geometry Dash folder";
-                else
-                    fbd.Description = "Select the save folder";
+                fbd.Description = (comboBoxSavePath.SelectedIndex == 1) ? "Select the Geometry Dash folder" : "Select the save folder";
                 DialogResult result = fbd.ShowDialog();
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(fbd.SelectedPath))
                 {
