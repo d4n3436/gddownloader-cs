@@ -18,7 +18,6 @@ namespace GDMainGUI
 
         private void buttonDownload_Click(object sender, EventArgs e)
         {
-            //To do: Prompt to overwrite if audio exist.
             if (string.IsNullOrWhiteSpace(textBoxID.Text) || string.IsNullOrWhiteSpace(textBoxAudioName.Text))
             {
                 return;
