@@ -56,7 +56,7 @@
             this.groupBoxData.Controls.Add(this.labelAudioName);
             this.groupBoxData.Controls.Add(this.labelID);
             this.groupBoxData.Controls.Add(this.textBoxAudioName);
-            this.groupBoxData.Location = new System.Drawing.Point(29, 37);
+            this.groupBoxData.Location = new System.Drawing.Point(27, 37);
             this.groupBoxData.Name = "groupBoxData";
             this.groupBoxData.Size = new System.Drawing.Size(210, 72);
             this.groupBoxData.TabIndex = 3;
@@ -119,13 +119,13 @@
             this.comboBoxSavePath.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxSavePath.FormattingEnabled = true;
             this.comboBoxSavePath.Items.AddRange(new object[] {
-            "Normal Path",
+            "Default Path",
             "Alternate Path",
             "Other..."});
             this.comboBoxSavePath.Location = new System.Drawing.Point(74, 140);
             this.comboBoxSavePath.MaxDropDownItems = 3;
-            this.comboBoxSavePath.SelectedIndex = 0;
             this.comboBoxSavePath.Name = "comboBoxSavePath";
+            this.comboBoxSavePath.SelectedIndex = 0;
             this.comboBoxSavePath.Size = new System.Drawing.Size(105, 21);
             this.comboBoxSavePath.TabIndex = 6;
             // 

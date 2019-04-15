@@ -33,28 +33,29 @@
             // 
             this.labelDownloading.AutoSize = true;
             this.labelDownloading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDownloading.Location = new System.Drawing.Point(65, 5);
+            this.labelDownloading.Location = new System.Drawing.Point(76, 5);
             this.labelDownloading.Name = "labelDownloading";
             this.labelDownloading.Size = new System.Drawing.Size(156, 16);
             this.labelDownloading.TabIndex = 1;
             this.labelDownloading.Text = "Downloading (0 KB/s)";
+            this.labelDownloading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // labelPercent
             // 
             this.labelPercent.AutoSize = true;
             this.labelPercent.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPercent.Location = new System.Drawing.Point(128, 53);
+            this.labelPercent.Location = new System.Drawing.Point(138, 53);
             this.labelPercent.Name = "labelPercent";
             this.labelPercent.Size = new System.Drawing.Size(32, 20);
             this.labelPercent.TabIndex = 2;
             this.labelPercent.Text = "0%";
+            this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // ProgressBarGUI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(308, 81);
-            this.ControlBox = false;
             this.Controls.Add(this.labelPercent);
             this.Controls.Add(this.labelDownloading);
             this.Controls.Add(this.progressBar);
@@ -64,6 +65,7 @@
             this.Name = "ProgressBarGUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loading...";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProgressBarGUI_FormClosed);
             this.Load += new System.EventHandler(this.ProgressBarGUI_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
