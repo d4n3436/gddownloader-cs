@@ -35,7 +35,7 @@
             this.buttonDownload.Location = new System.Drawing.Point(90, 180);
             this.buttonDownload.Name = "buttonDownload";
             this.buttonDownload.Size = new System.Drawing.Size(75, 23);
-            this.buttonDownload.TabIndex = 1;
+            this.buttonDownload.TabIndex = 3;
             this.buttonDownload.Text = "Download";
             this.buttonDownload.UseVisualStyleBackColor = true;
             this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
@@ -45,7 +45,7 @@
             this.buttonHelp.Location = new System.Drawing.Point(180, 180);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(75, 23);
-            this.buttonHelp.TabIndex = 2;
+            this.buttonHelp.TabIndex = 4;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
             this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
@@ -59,16 +59,17 @@
             this.groupBoxData.Location = new System.Drawing.Point(27, 37);
             this.groupBoxData.Name = "groupBoxData";
             this.groupBoxData.Size = new System.Drawing.Size(210, 72);
-            this.groupBoxData.TabIndex = 3;
+            this.groupBoxData.TabIndex = 0;
             this.groupBoxData.TabStop = false;
             this.groupBoxData.Text = "Data";
             // 
             // textBoxID
             // 
             this.textBoxID.Location = new System.Drawing.Point(15, 40);
+            this.textBoxID.MaxLength = 8;
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(56, 20);
-            this.textBoxID.TabIndex = 4;
+            this.textBoxID.TabIndex = 0;
             this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
             // labelAudioName
@@ -124,8 +125,8 @@
             "Other..."});
             this.comboBoxSavePath.Location = new System.Drawing.Point(74, 140);
             this.comboBoxSavePath.MaxDropDownItems = 3;
-            this.comboBoxSavePath.Name = "comboBoxSavePath";
             this.comboBoxSavePath.SelectedIndex = 0;
+            this.comboBoxSavePath.Name = "comboBoxSavePath";
             this.comboBoxSavePath.Size = new System.Drawing.Size(105, 21);
             this.comboBoxSavePath.TabIndex = 6;
             // 
@@ -142,15 +143,17 @@
             this.Controls.Add(this.groupBoxData);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.buttonDownload);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.Name = "MainGUI";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GD Downloader";
             this.groupBoxData.ResumeLayout(false);
             this.groupBoxData.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
 
         #endregion

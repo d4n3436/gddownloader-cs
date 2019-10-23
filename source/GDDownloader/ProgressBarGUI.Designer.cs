@@ -31,11 +31,11 @@
             // 
             // labelDownloading
             // 
-            this.labelDownloading.AutoSize = true;
+            this.labelDownloading.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelDownloading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDownloading.Location = new System.Drawing.Point(76, 5);
             this.labelDownloading.Name = "labelDownloading";
-            this.labelDownloading.Size = new System.Drawing.Size(156, 16);
+            this.labelDownloading.Size = new System.Drawing.Size(308, 22);
             this.labelDownloading.TabIndex = 1;
             this.labelDownloading.Text = "Downloading (0 KB/s)";
             this.labelDownloading.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

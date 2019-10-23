@@ -9,11 +9,13 @@ namespace GDDownloader
 {
     public partial class ProgressBarGUI : Form
     {
-        public static double ID = MainGUI.ID;
-        public static double ModID = ID - (ID % 1000);
-        public static string Path = MainGUI.Path;
-        public static string URL = "https://audio-download.ngfiles.com/" + ModID + "/" + ID + "_" + MainGUI.SongName + ".mp3";
+        private static int ID = MainGUI.ID;
+        private static string Path = MainGUI.Path;
+        private static string URL = "https://audio-download.ngfiles.com/" + (ID - (ID % 1000)) + "/" + ID + "_" + MainGUI.AudioName + ".mp3";
         //Some Newgrounds audio downloads uses "http://audio.ngfiles.com" but that doesn't seem to be a problem.
+
+        private double CurrentSize;
+        private double FinalSize;
 
         private WebClient WebClient = new WebClient();
         private Stopwatch Stopwatch = new Stopwatch();
@@ -28,17 +30,15 @@ namespace GDDownloader
             Stopwatch.Start();
             WebClient.DownloadFileAsync(new Uri(URL), Path);
 
-            WebClient.DownloadProgressChanged += Client_DownloadProgressChanged;
-            WebClient.DownloadFileCompleted += Client_DownloadFileCompleted;
+            WebClient.DownloadProgressChanged += WebClient_DownloadProgressChanged;
+            WebClient.DownloadFileCompleted += WebClient_DownloadFileCompleted;
         }
 
-        private void Client_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
+        private void WebClient_DownloadFileCompleted(object sender, AsyncCompletedEventArgs e)
         {
-            Invoke((MethodInvoker)delegate
-            {
-                Stopwatch.Stop(); //Stop the stopwatch
-                this.Hide(); //Hide the form
-            });
+            Stopwatch.Stop();
+            WebClient.Dispose();
+            this.Hide();
             if (e.Error == null)
             {
                 MessageBox.Show("Audio downloaded successfully.", "GD Downloader", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -49,13 +49,15 @@ namespace GDDownloader
                 if (File.Exists(Path))
                     File.Delete(Path);
             }
-            Application.Exit();
+            this.Close();
         }
 
-        private void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e) => Invoke((MethodInvoker)delegate
+        private void WebClient_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            double CurrentSize = Math.Round(double.Parse(e.BytesReceived.ToString()) / 1000000, 2);
-            double FinalSize = Math.Round(double.Parse(e.TotalBytesToReceive.ToString()) / 1000000, 2);
+            //CurrentSize = Math.Round(double.Parse(e.BytesReceived.ToString()) / 1000000, 2);
+            CurrentSize = Math.Round(Convert.ToDouble(e.BytesReceived) / 1000000, 2);
+            //FinalSize = Math.Round(double.Parse(e.TotalBytesToReceive.ToString()) / 1000000, 2);
+            FinalSize = Math.Round(Convert.ToDouble(e.TotalBytesToReceive) / 1000000, 2);
 
             labelDownloading.Text = "Downloading (" + Math.Round(e.BytesReceived / Stopwatch.Elapsed.TotalSeconds / 1000, 1) + " KB/s)";
             progressBar.Value = e.ProgressPercentage;
@@ -64,13 +66,13 @@ namespace GDDownloader
             this.Text = "Downloading " + ID + ".mp3 (" + CurrentSize + " MB / " + FinalSize + " MB)";
 
             //Align the label to the center.
-            labelDownloading.Left = (labelDownloading.Parent.Width - labelDownloading.Width - labelDownloading.Text.Length) / 2;
-        });
+            //labelDownloading.Left = (labelDownloading.Parent.Width - labelDownloading.Width - labelDownloading.Text.Length) / 2;
+        }
 
         private void ProgressBarGUI_FormClosed(object sender, FormClosedEventArgs e)
         {
-            WebClient.CancelAsync();
-            Application.Exit();
+            if (WebClient.IsBusy)
+                WebClient.CancelAsync();
         }
     }
 }
