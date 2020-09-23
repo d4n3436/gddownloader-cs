@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>GDDownloader</RootNamespace>
     <AssemblyName>GDDownloader</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -72,25 +72,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MainGUI.cs">
+    <Compile Include="Constants.cs" />
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="MainGUI.Designer.cs">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="ProgressBarGUI.cs">
+    <Compile Include="ProgressBarWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ProgressBarGUI.Designer.cs">
-      <DependentUpon>ProgressBarGUI.cs</DependentUpon>
+    <Compile Include="ProgressBarWindow.Designer.cs">
+      <DependentUpon>ProgressBarWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="MainGUI.resx">
-      <DependentUpon>MainGUI.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ProgressBarGUI.resx">
-      <DependentUpon>ProgressBarGUI.cs</DependentUpon>
+    <EmbeddedResource Include="ProgressBarWindow.resx">
+      <DependentUpon>ProgressBarWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -10,7 +10,7 @@ namespace GDDownloader
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainGUI());
+            Application.Run(new MainWindow());
         }
     }
 }

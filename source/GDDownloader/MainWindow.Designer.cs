@@ -1,6 +1,6 @@
 ﻿namespace GDDownloader
 {
-    partial class MainGUI
+    partial class MainWindow
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -38,7 +38,7 @@
             this.buttonDownload.TabIndex = 3;
             this.buttonDownload.Text = "Download";
             this.buttonDownload.UseVisualStyleBackColor = true;
-            this.buttonDownload.Click += new System.EventHandler(this.buttonDownload_Click);
+            this.buttonDownload.Click += new System.EventHandler(this.ButtonDownload_Click);
             // 
             // buttonHelp
             // 
@@ -48,7 +48,7 @@
             this.buttonHelp.TabIndex = 4;
             this.buttonHelp.Text = "Help";
             this.buttonHelp.UseVisualStyleBackColor = true;
-            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            this.buttonHelp.Click += new System.EventHandler(this.ButtonHelp_Click);
             // 
             // groupBoxData
             // 
@@ -70,7 +70,6 @@
             this.textBoxID.Name = "textBoxID";
             this.textBoxID.Size = new System.Drawing.Size(56, 20);
             this.textBoxID.TabIndex = 0;
-            this.textBoxID.TextChanged += new System.EventHandler(this.textBoxID_TextChanged);
             // 
             // labelAudioName
             // 
@@ -125,12 +124,11 @@
             "Other..."});
             this.comboBoxSavePath.Location = new System.Drawing.Point(74, 140);
             this.comboBoxSavePath.MaxDropDownItems = 3;
-            this.comboBoxSavePath.SelectedIndex = 0;
             this.comboBoxSavePath.Name = "comboBoxSavePath";
             this.comboBoxSavePath.Size = new System.Drawing.Size(105, 21);
             this.comboBoxSavePath.TabIndex = 6;
             // 
-            // MainGUI
+            // MainWindow
             // 
             this.AcceptButton = this.buttonDownload;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -145,10 +143,11 @@
             this.Controls.Add(this.buttonDownload);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
-            this.Name = "MainGUI";
+            this.Name = "MainWindow";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GD Downloader";
+            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBoxData.ResumeLayout(false);
             this.groupBoxData.PerformLayout();
             this.ResumeLayout(false);

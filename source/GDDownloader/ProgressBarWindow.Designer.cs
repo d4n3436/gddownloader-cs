@@ -1,6 +1,6 @@
 ﻿namespace GDDownloader
 {
-    partial class ProgressBarGUI
+    partial class ProgressBarWindow
     {
         private System.ComponentModel.IContainer components = null;
 
@@ -33,7 +33,7 @@
             // 
             this.labelDownloading.Dock = System.Windows.Forms.DockStyle.Top;
             this.labelDownloading.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDownloading.Location = new System.Drawing.Point(76, 5);
+            this.labelDownloading.Location = new System.Drawing.Point(0, 0);
             this.labelDownloading.Name = "labelDownloading";
             this.labelDownloading.Size = new System.Drawing.Size(308, 22);
             this.labelDownloading.TabIndex = 1;
@@ -51,7 +51,7 @@
             this.labelPercent.Text = "0%";
             this.labelPercent.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ProgressBarGUI
+            // ProgressBarWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -62,11 +62,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "ProgressBarGUI";
+            this.Name = "ProgressBarWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Loading...";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ProgressBarGUI_FormClosed);
-            this.Load += new System.EventHandler(this.ProgressBarGUI_Load);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ProgressBarWindow_FormClosing);
+            this.Load += new System.EventHandler(this.ProgressBarWindow_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
